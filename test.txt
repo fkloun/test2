@@ -6,14 +6,11 @@ asdfasdfdf
 
 hgfghfjh
 
-<<<<<<< HEAD
-
 adsf
 
 
 asdfasdf
 asdfasdfsd
-=======
 asdfasdfasdf
 adsf
->>>>>>> bb7869a57e505628ceb2b5da4e2de559e50ebd63
+safdasdf
