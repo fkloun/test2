@@ -1,0 +1,7 @@
+diff a/test.txt b/test.txt	(rejected hunks)
+@@ -12,3 +12,4 @@
+ =======
+ test123
+ >>>>>>> test
++afdasdf
+\ No newline at end of file
