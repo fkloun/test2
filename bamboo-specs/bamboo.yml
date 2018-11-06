@@ -7,7 +7,7 @@ project:
 stages:
   - jobs:
       - scripts:
-          - echo 'testing artifact'
+          - echo 'testing2 artifact'
         artifacts:
           - name: test file
             path: test.txt
