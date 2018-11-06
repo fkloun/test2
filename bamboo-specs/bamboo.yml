@@ -1,0 +1,14 @@
+---
+project:
+  key: SPECS
+  plan:
+    key: STASH
+    name: bamboo specs yaml
+stages:
+  - jobs:
+      - scripts:
+          - echo 'testing artifact'
+        artifacts:
+          - name: test file
+            path: test.txt
+...
