@@ -39,7 +39,7 @@ public class PlanSpec {
                             .tasks(new VcsCheckoutTask()
                                     .description("Checkout Default Repository1")
                                     .checkoutItems(new CheckoutItem().defaultRepository()))))
-            .linkedRepositories("stash-master")
+            .linkedRepositories("git-github-test2")
             
             .triggers(new BitbucketServerTrigger())
             .planBranchManagement(new PlanBranchManagement()
