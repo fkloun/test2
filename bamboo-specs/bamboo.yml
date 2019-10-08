@@ -1,0 +1,22 @@
+---
+version: 2
+plan:
+  project-key: SPECS
+  key: STASH
+  name: bamboo specs yaml
+
+stages:
+  - stage 1:
+    - Ndepend
+    
+Ndepend:
+  tasks:
+    - script:
+        interpreter: Windows PowerShell
+        scripts:
+          - echo 'Going to slay the red dragon, watch me'
+          - sleep 1
+          - echo 'Nailed it'
+        requirements:
+          - Master-Ndepend
+...
