@@ -2,7 +2,7 @@
 version: 2
 plan:
   project-key: SPECS
-  key: STASH
+  key: GIT
   name: bamboo specs yaml
 
 stages:
