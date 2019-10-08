@@ -12,7 +12,7 @@ stages:
 Ndepend:
   tasks:
     - script:
-        interpreter: windows_power_shell
+        interpreter: powershell
         scripts:
           - ${bamboo.build.working.directory}\Devops\AutoInstall
   requirements:
