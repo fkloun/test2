@@ -24,12 +24,10 @@ public class PlanSpec {
     
     public Plan plan() {
         final Plan plan = new Plan(new Project()
-                .oid(new BambooOid("11s74s5dl1nup"))
                 .key(new BambooKey("TEST"))
                 .name("TEST"),
             "stash",
             new BambooKey("STAS"))
-            .oid(new BambooOid("l5a4nm0q95vl"))
             .enabled(false)
             .pluginConfigurations(new ConcurrentBuilds()
                     .useSystemWideDefault(false))
@@ -69,5 +67,8 @@ public class PlanSpec {
         
         final PlanPermissions planPermission = planSpec.planPermission();
         bambooServer.publish(planPermission);
+        
+        
+        
     }
 }
