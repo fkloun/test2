@@ -23,8 +23,8 @@ public class PlanSpec {
     public Plan plan() {
         final Plan plan = new Plan(new Project()
                 .oid(new BambooOid("grvrl1p06k8x"))
-                .key(new BambooKey("BAM"))
-                .name("bamboo"),
+                .key(new BambooKey("TEST"))
+                .name("test"),
             "test",
             new BambooKey("TEST"))
             .pluginConfigurations(new ConcurrentBuilds())
