@@ -18,15 +18,15 @@ import com.atlassian.bamboo.specs.builders.trigger.RepositoryPollingTrigger;
 import com.atlassian.bamboo.specs.util.BambooServer;
 
 @BambooSpec
-public class PlanSpec {
+public class PlanSpecB {
     
     public Plan plan() {
         final Plan plan = new Plan(new Project()
                 .oid(new BambooOid("grvrl1p06k8x"))
                 .key(new BambooKey("BAM"))
                 .name("bamboo"),
-            "test",
-            new BambooKey("TEST"))
+            "testing",
+            new BambooKey("TES"))
             .oid(new BambooOid("grm2dgbscruq"))
             .pluginConfigurations(new ConcurrentBuilds())
             .stages(new Stage("Default Stage")
@@ -45,7 +45,7 @@ public class PlanSpec {
     }
     
     public PlanPermissions planPermission() {
-        final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("BAM", "GIT"))
+        final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("BAM", "TES"))
             .permissions(new Permissions()
                     .userPermissions("kahloun.foong", PermissionType.EDIT, PermissionType.VIEW, PermissionType.ADMIN, PermissionType.CLONE, PermissionType.BUILD));
         return planPermission;
@@ -54,7 +54,7 @@ public class PlanSpec {
     public static void main(String... argv) {
         //By default credentials are read from the '.credentials' file.
         BambooServer bambooServer = new BambooServer("http://localhost:8085");
-        final PlanSpec planSpec = new PlanSpec();
+        final PlanSpecB planSpec = new PlanSpecB();
         
         final Plan plan = planSpec.plan();
         bambooServer.publish(plan);
