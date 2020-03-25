@@ -23,11 +23,10 @@ public class PlanSpecB {
     public Plan plan() {
         final Plan plan = new Plan(new Project()
                 .oid(new BambooOid("grvrl1p06k8x"))
-                .key(new BambooKey("BAM"))
-                .name("bamboo"),
-            "testing",
-            new BambooKey("TES"))
-            .oid(new BambooOid("grm2dgbscruq"))
+                .key(new BambooKey("TEST"))
+                .name("test"),
+            "test",
+            new BambooKey("TEST"))
             .pluginConfigurations(new ConcurrentBuilds())
             .stages(new Stage("Default Stage")
                     .jobs(new Job("Default Job",
@@ -45,7 +44,7 @@ public class PlanSpecB {
     }
     
     public PlanPermissions planPermission() {
-        final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("BAM", "TES"))
+        final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("TEST", "TES"))
             .permissions(new Permissions()
                     .userPermissions("kahloun.foong", PermissionType.EDIT, PermissionType.VIEW, PermissionType.ADMIN, PermissionType.CLONE, PermissionType.BUILD));
         return planPermission;

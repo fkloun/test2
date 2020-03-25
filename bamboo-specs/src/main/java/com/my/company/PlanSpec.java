@@ -27,7 +27,6 @@ public class PlanSpec {
                 .name("bamboo"),
             "test",
             new BambooKey("TEST"))
-            .oid(new BambooOid("grm2dgbscruq"))
             .pluginConfigurations(new ConcurrentBuilds())
             .stages(new Stage("Default Stage")
                     .jobs(new Job("Default Job",
