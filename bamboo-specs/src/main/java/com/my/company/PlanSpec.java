@@ -44,7 +44,7 @@ public class PlanSpec {
     }
     
     public PlanPermissions planPermission() {
-        final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("BAM", "GIT"))
+        final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("TEST", "TEST"))
             .permissions(new Permissions()
                     .userPermissions("kahloun.foong", PermissionType.EDIT, PermissionType.VIEW, PermissionType.ADMIN, PermissionType.CLONE, PermissionType.BUILD));
         return planPermission;
