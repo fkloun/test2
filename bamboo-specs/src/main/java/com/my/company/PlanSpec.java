@@ -11,12 +11,10 @@ import com.atlassian.bamboo.specs.api.builders.plan.Stage;
 import com.atlassian.bamboo.specs.api.builders.plan.branches.BranchCleanup;
 import com.atlassian.bamboo.specs.api.builders.plan.branches.PlanBranchManagement;
 import com.atlassian.bamboo.specs.api.builders.plan.configuration.ConcurrentBuilds;
-import com.atlassian.bamboo.specs.api.builders.plan.dependencies.Dependencies;
-import com.atlassian.bamboo.specs.api.builders.plan.dependencies.DependenciesConfiguration;
 import com.atlassian.bamboo.specs.api.builders.project.Project;
 import com.atlassian.bamboo.specs.builders.task.CheckoutItem;
 import com.atlassian.bamboo.specs.builders.task.VcsCheckoutTask;
-import com.atlassian.bamboo.specs.builders.trigger.BitbucketServerTrigger;
+import com.atlassian.bamboo.specs.builders.trigger.RepositoryPollingTrigger;
 import com.atlassian.bamboo.specs.util.BambooServer;
 
 @BambooSpec
@@ -24,36 +22,32 @@ public class PlanSpec {
     
     public Plan plan() {
         final Plan plan = new Plan(new Project()
-                .key(new BambooKey("TEST"))
-                .name("TEST"),
-            "stash",
-            new BambooKey("STAS"))
-            .enabled(false)
-            .pluginConfigurations(new ConcurrentBuilds()
-                    .useSystemWideDefault(false))
+                .oid(new BambooOid("grvrl1p06k8x"))
+                .key(new BambooKey("BAM"))
+                .name("bamboo"),
+            "test",
+            new BambooKey("TEST"))
+            .oid(new BambooOid("grm2dgbscrup"))
+            .pluginConfigurations(new ConcurrentBuilds())
             .stages(new Stage("Default Stage")
                     .jobs(new Job("Default Job",
                             new BambooKey("JOB1"))
                             .tasks(new VcsCheckoutTask()
-                                    .description("Checkout Default Repository1")
+                                    .description("Checkout Default Repository")
                                     .checkoutItems(new CheckoutItem().defaultRepository()))))
             .linkedRepositories("git-github-test2")
             
-            .triggers(new BitbucketServerTrigger())
+            .triggers(new RepositoryPollingTrigger())
             .planBranchManagement(new PlanBranchManagement()
                     .delete(new BranchCleanup())
-                    .notificationForCommitters())
-            .dependencies(new Dependencies()
-                    .configuration(new DependenciesConfiguration()
-                            .enabledForBranches(false)))
-            .forceStopHungBuilds();
+                    .notificationForCommitters());
         return plan;
     }
     
     public PlanPermissions planPermission() {
-        final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("TEST", "STAS"))
+        final PlanPermissions planPermission = new PlanPermissions(new PlanIdentifier("BAM", "GIT"))
             .permissions(new Permissions()
-                    .userPermissions("admin", PermissionType.ADMIN, PermissionType.CLONE, PermissionType.BUILD, PermissionType.VIEW, PermissionType.EDIT));
+                    .userPermissions("kahloun.foong", PermissionType.EDIT, PermissionType.VIEW, PermissionType.ADMIN, PermissionType.CLONE, PermissionType.BUILD));
         return planPermission;
     }
     
@@ -67,8 +61,5 @@ public class PlanSpec {
         
         final PlanPermissions planPermission = planSpec.planPermission();
         bambooServer.publish(planPermission);
-        
-        
-        
     }
 }
