@@ -22,11 +22,10 @@ public class PlanSpec {
     
     public Plan plan() {
         final Plan plan = new Plan(new Project()
-                .oid(new BambooOid("grvrl1p06k8x"))
                 .key(new BambooKey("BAM"))
                 .name("bamboo"),
-            "test",
-            new BambooKey("TEST"))
+            "git",
+            new BambooKey("GIT"))
             .pluginConfigurations(new ConcurrentBuilds())
             .stages(new Stage("Default Stage")
                     .jobs(new Job("Default Job",
