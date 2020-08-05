@@ -1,0 +1,22 @@
+---
+version: 2
+plan:
+  project-key: SPECS
+  key: STASH
+  name: bamboo specs yaml3
+
+stages:
+  - stage 1:
+    - Ndepend
+    
+Ndepend:
+  tasks:
+    - script: echo hello > test.txt
+  artifacts:
+    -
+      name: stage1artifact
+      location: .
+      pattern: 'test.txt'
+      required: true
+      shared: true
+...
